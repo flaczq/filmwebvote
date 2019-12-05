@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "FilmWebVote",
-    "slug": "FilmWeb",
+    "slug": "FilmWebVote",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
