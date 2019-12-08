@@ -7,7 +7,8 @@ const APPID = 'android';
 const SECRET = 'qjcGhW2JnvGT9dfCt3uT_jozR3s';
 const METHODS = {
     LOGIN: 'login',
-    FILM_DESCRIPTION: 'getFilmDescription'
+    FILM_DESCRIPTION: 'getFilmDescription',
+    FILM_VOTES: 'getUserFilmVotes'
 };
 
 const getSignature = (method: string) => {

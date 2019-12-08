@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
+import setCookie from 'set-cookie-parser';
 import * as Utils from './Utils';
 
 interface LoginProps {
@@ -27,11 +28,19 @@ const Login: React.FC<LoginProps> = (props) => {
             + `&signature=${Utils.getSignature(method)}`
             + `&version=${Utils.VERSION}`
             + `&appId=${Utils.APPID}`, {
-            method: 'POST'
+            method: 'POST',
+            credentials: 'include',
+            mode: 'no-cors',
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
             //BODY
         })
             .then(response => {
                 //setHeaders(response.headers.get('Set-Cookie'));
+                const cks = response.headers.get('Set-Cookie');
+                const split = setCookie.splitCookiesString(cks);
+                console.log('a', setCookie.parse(split));
                 return response.text();
             })
             .then(parsed => {
